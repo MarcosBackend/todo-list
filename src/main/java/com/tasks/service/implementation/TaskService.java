@@ -38,7 +38,7 @@ public class TaskService implements ITaskService {
     @Override
     public List<TaskDTO> findByCompleted(Boolean completed) {
         ModelMapper modelMapper = new ModelMapper();
-        return this.taskRepository.findAll()
+        return this.taskRepository.findByCompleted(completed)
                 .stream()
                 .map(entity -> modelMapper.map(entity, TaskDTO.class))
                 .collect(Collectors.toList());

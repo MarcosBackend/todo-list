@@ -18,7 +18,7 @@ public class TaskController {
     private TaskService taskService;
 
     @PostMapping("create")
-    public ResponseEntity<TaskDTO> createTask(@RequestBody TaskDTO taskDTO) {
+    public ResponseEntity<TaskDTO> createTask(@RequestBody @Valid TaskDTO taskDTO) {
         return new ResponseEntity<>(this.taskService.createTask(taskDTO), HttpStatus.CREATED);
     }
 
